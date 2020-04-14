@@ -1,5 +1,7 @@
 GRO--A spatiotemporal sampling method for 2D dynamic MRI.
+
 CAVA--A spatiotemporal sampling method for 2D dynamic MRI, with retrospective adjustment of temporal resolution.
+
 
 
 To begin, download all the files in the same folder and run demo_gro.m or demo_cava.m in Matlab. If you have questions, please contact Rizwan Ahmad (ahmad.46@osu.edu)

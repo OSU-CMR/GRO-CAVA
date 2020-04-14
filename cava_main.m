@@ -2,19 +2,19 @@ clear;
 close all;
 % Author: Rizwan Ahmad (ahmad.46@osu.edu)
 % Last modified Apr-14-2020
-% For more information, visit https://cmr.engineering.osu.edu/software/data-acquisition 
+% Publication: https://onlinelibrary.wiley.com/doi/abs/10.1002/mrm.28059
 
 
-%% Input paramters
-param.n   = 18;   % Number of phase encoding (PE) lines per frame
-param.FR  = 64;   % Frames
-param.PE  = 160;  % Size of of PE grid
-param.E   = 2;    % Number of encoding, E=1 for cine, E=2 for flow (phase-contrast MRI)
-param.PF  = 0;   % for partial fourier; discards PF samples from one side (default: 0, range: 0-floor(n/2), precision: 1);
+%% Essential paramters
+param.n   = 8;   % readouts per frame--can be changed retrospectively
+param.FR  = 32;  % Number of frames--can be changed retrospectively
+param.PE  = 96;  % Size of PE grid
+param.E   = 2;   % Number of encoding, E=1 for cine, E=2 for flow (phase-contrast MRI)
 param.ir  = 1;   % ir = 1 or 2 for golden angle, ir > 2 for tiny golden angles; default value: 1
 param.k   = 3;   % k>=1. k=1 uniform; k>1 variable density profile; larger k means flatter top (default: 3)
 param.s   = 2;   % s>=0; % largers s means higher sampling density in the middle (default: 2, range: 0-10, precision: 0.1)
-param.dsp = 1;   % Display pattern after reach frame, '0' for no, and '1' for yes
+param.dsp = 0;   % Display results after reach sample
+
 
 %% Outputs
 % samp: Binary sampling pattern on param.PE x param.FR x param.E grid
@@ -23,6 +23,7 @@ param.dsp = 1;   % Display pattern after reach frame, '0' for no, and '1' for ye
 
 %% generating sampling mask and indices
 disp('For faster computation, turn the display (param.dsp) off');
-[samp, PEInd] = gro_fun(param);
+[samp, PEInd] = cava_fun(param);
 disp('For retrospecting downsampling use the binary mask "samp"'); 
-disp('To collect the data using the samping pattern, use PEInd. The entries in PEInd are sorted to minimize k-space jumps');
+disp('To collect the data using the samping pattern, use PEInd. The PEInd can be retrospectively sorted into bins of different sizes');
+

@@ -34,7 +34,8 @@ ind = zeros(N,E); % "hidden" index on a uniform grid
 for e=1:E
     kk=e;
     for i=1:N
-        if i==1,     ind(i,e) = rem(floor(PES/2) + 1 + (e-1)*PES/(E*1) -1, PES) + 1;
+        if i==1,     ind(i,e) = rem(floor(PES/2) + 1 + (e-1)*ga*PES/(E*1) -1, PES) + 1;
+%         if i==1,     ind(i,e) = rem(floor(PES/2) + 1 + (e-1)*PES/(E*1) -1, PES) + 1;
         elseif i>1,  ind(i,e) = rem((ind(i-1,e) + PES*ga)-1, PES) + 1;
         end
         ind(i,e) = ind(i,e) - PES.*(ind(i,e)>=(PES+0.5));

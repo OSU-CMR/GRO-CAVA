@@ -26,7 +26,7 @@ samp  = zeros(PE, FR, E); % sampling on PE-t grid
 PEInd = zeros((n-PF)*FR,E); % The ordered sequence of PE indices
 
 
-figure;
+% figure;
 v0 = (1/2+1e-10:PES/(n+PF):PES+1/2-1e-10); % Start with uniform sampling for each frame
 for e=1:E
     v0 = v0 + 1/E*PES/(n+PF); % Start with uniform sampling for each frame
@@ -52,6 +52,7 @@ for e=1:E
 
         samp(vC, j, e) = samp(vC, j, e)+ kk;
         if dsp ==1
+            figure(1);
             subplot(1,E,e); imagesc(samp(:,:,e),[0,E]); xlabel('frames'); ylabel('PE'); axis('image'); colormap(hot); title(['encoding ' num2str(e)]); %axis('image'); 
             pause(1e-3);
         end

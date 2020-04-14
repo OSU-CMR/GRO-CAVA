@@ -29,14 +29,13 @@ c = (PE/2-PES/2)/((PES/2)^k); %(1/2*(PE-PES)/max(tmp)); % location specific disp
 samp  = zeros(PE, ceil(N/n), E); % sampling on PE-t grid
 PEInd = zeros(N,E); % Final PE index used for MRI
 
-figure;
+% figure;
 kk=1;
 ind = zeros(N,E); % "hidden" index on a uniform grid
 for e=1:E
     kk=e;
     for i=1:N
-        if i==1,     ind(i,e) = rem(floor(PES/2) + 1 + (e-1)*sqrt(1)*ga*PES/(E*1) -1, PES) + 1;
-%         if i==1,     ind(i,e) = rem(floor(PES/2) + 1 + (e-1)*sqrt(3)*PES/(E*n) -1, PES) + 1;
+        if i==1,     ind(i,e) = rem(floor(PES/2) + 1 + (e-1)*PES/E -1, PES) + 1;
         elseif i>1,  ind(i,e) = rem((ind(i-1,e) + PES*ga)-1, PES) + 1;
         end
         ind(i,e) = ind(i,e) - PES.*(ind(i,e)>=(PES+0.5));
@@ -48,9 +47,10 @@ for e=1:E
             indC = ind(i,e) - c*sign((PES/2+1/2)-ind(i,e))*(abs((PES/2+1/2)-ind(i,e))).^k + (PE-PES)/2;%(ctrn - ctrnS);
         end 
     %     kk = (-1)^i;
-       PEInd(i,E) = round(indC);
-       samp(PEInd(i,E), ceil(i/n),e) = samp(PEInd(i,E), ceil(i/n),e)+ kk;
+       PEInd(i,e) = round(indC);
+       samp(PEInd(i,e), ceil(i/n),e) = samp(PEInd(i,e), ceil(i/n),e)+ kk;
        if dsp ==1
+           figure(1)
            subplot(1,E,e); imagesc(samp(:,:,e),[0,E]);xlabel('frames'); ylabel('PE'); axis('image'); colormap(hot); title(['encoding ' num2str(e)]); %axis('image'); 
            pause(1e-3);
        end

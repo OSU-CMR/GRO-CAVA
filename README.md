@@ -1,13 +1,13 @@
 GRO--A spatiotemporal sampling method for 2D dynamic MRI.
 
-This Matlab code generates Golden Ratio Ordered (GRO) sampling pattern. To begin, download all the files in the same folder and run main.m in Matlab. If you have questions, please contact Rizwan Ahmad (ahmad.46@osu.edu)
+This Matlab code generates Golden Ratio Ordered (GRO) sampling pattern. To begin, download all the files in the same folder and run gro_main.m in Matlab. If you have questions, please contact Rizwan Ahmad (ahmad.46@osu.edu)
 
 Version 1.0
 Original posting 04/14/2020
 
 Author: Rizwan Ahmad (ahmad.46@osu.edu)
 
-Reference: https://cmr.engineering.osu.edu/software/data-acquisition 
+For more information, visit https://cmr.engineering.osu.edu/software/data-acquisition 
 
 2020, Patent Pending
 

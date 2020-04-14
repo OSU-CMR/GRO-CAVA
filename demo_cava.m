@@ -7,7 +7,7 @@ close all;
 
 %% Essential paramters
 param.n   = 6;   % readouts per frame--can be changed retrospectively
-param.FR  = 32;  % Number of frames--can be changed retrospectively
+param.FR  = 36;  % Number of frames--can be changed retrospectively
 param.PE  = 120;  % Size of PE grid
 param.E   = 2;   % Number of encoding, E=1 for cine, E=2 for flow (phase-contrast MRI)
 param.ir  = 1;   % ir = 1 or 2 for golden angle, ir > 2 for tiny golden angles; default value: 1

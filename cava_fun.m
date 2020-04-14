@@ -13,7 +13,8 @@ dsp = param.dsp;
 
 
 % R  = PE/n; % Initial guess of acceleration
-% s  = max(1, s*(R).^(1/3));     % To keep the default value of s close to 1 % To keep the default value of s close to 1
+% s  = max(1, s*(R).^(1/3));  % This is to adapt the value of's' based on acceleration.
+
 gr = (1+sqrt(5))/2; % golden ratio F_{PE+1}/F_{PE}
 ga = 1/(gr+ir-1); %(1-1/gr); % golden angle 
 PES = ceil(PE * 1/s); % Size of shrunk PE grid
@@ -21,15 +22,11 @@ PES = ceil(PE * 1/s); % Size of shrunk PE grid
 %% Size of the smaller pseudo-grid which after stretching gives the true grid size
 c = (PE/2-PES/2)/((PES/2)^k); %(1/2*(PE-PES)/max(tmp)); % location specific displacement
 
-%% colormap
-% c = jet;
-% c = bsxfun( @times, c, (1-exp(-[2*(0:size(c,1)-1)]')) );
 
 %% Let's populate the grid;
 samp  = zeros(PE, ceil(N/n), E); % sampling on PE-t grid
 PEInd = zeros(N,E); % Final PE index used for MRI
 
-% figure;
 ind = zeros(N,E); % "hidden" index on a uniform grid
 for e=1:E
     kk=e;

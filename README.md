@@ -15,7 +15,7 @@ Author: Rizwan Ahmad (ahmad.46@osu.edu)
 
 CAVA Publication: https://onlinelibrary.wiley.com/doi/abs/10.1002/mrm.28059
 GRO Publication: 
-For more information, visit https://cmr.engineering.osu.edu/software/data-acquisition 
+For more information, visit https://cmr.engineering.osu.edu/software/data-acquisition-and-reconstruction
 
 
 2020, Patent Pending

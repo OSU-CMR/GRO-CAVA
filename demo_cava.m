@@ -13,7 +13,7 @@ param.E   = 2;   % Number of encoding, E=1 for cine, E=2 for flow (phase-contras
 param.ir  = 1;   % ir = 1 or 2 for golden angle, ir > 2 for tiny golden angles; default value: 1
 param.k   = 3;   % k>=1. k=1 uniform; k>1 variable density profile; larger k means flatter top (default: 3)
 param.s   = 2;   % s>=0; % largers s means higher sampling density in the middle (default: 2, range: 0-10, precision: 0.1)
-param.dsp = 0;   % Display patter after reach sample
+param.dsp = 1;   % Display patter after reach sample
 
 
 %% Outputs
